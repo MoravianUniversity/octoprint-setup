@@ -286,6 +286,10 @@ plugins:
         faIcon: fa fa-terminal
   octolapse:
     _config_version: 3
+  classicwebcam:
+    flipH: true
+    flipV: true
+    rotate90: true
 server:
   firstRun: false
   host: 0.0.0.0
@@ -308,10 +312,6 @@ temperature:
     chamber: null
     extruder: 200
     name: PLA
-webcam:
-  flipH: true
-  flipV: true
-  rotate90: true
 EOF
 
 
@@ -417,6 +417,9 @@ plugins:
     upnpUuid: $UUID_1
   errortracking:
     unique_id: $UUID_2
+  classicwebcam:
+    snapshot: $SNAPSHOT_URL
+    stream: $STREAM_URL
 serial:
   additionalPorts:
   - /dev/$NAME$USB_DEV_SUFFIX
@@ -424,9 +427,6 @@ serial:
   port: /dev/$NAME$USB_DEV_SUFFIX
 server:
   port: $WEB_PORT
-webcam:
-  snapshot: $SNAPSHOT_URL
-  stream: $STREAM_URL
 EOF
     # encrypt the password with the unique salt
     ./oprint/bin/octoprint -b "$DIR" user password "$OCTOPRINT_USERNAME" --password "$OCTOPRINT_PASSWORD"
