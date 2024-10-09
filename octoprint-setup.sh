@@ -191,7 +191,7 @@ server {
     server_name $NAME.$DOMAIN;
     client_max_body_size 150m;
     location / {
-        proxy_pass http://localhost:$WEB_PORT;
+        proxy_pass http://127.0.0.1:$WEB_PORT;
         proxy_set_header Host \$host;
         proxy_set_header X-Real-IP \$remote_addr;
         proxy_set_header Upgrade \$http_upgrade;
